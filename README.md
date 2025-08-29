@@ -29,3 +29,12 @@ aws-static-site/
 
 ## Author
 **Jesus Velasquez**
+
+## Day 1 Achievements (2025-08-28)
+- Completed 1.5 hrs of CLF course (Global Infra + Compute)
+- Launched and connected to EC2 instance
+- Verified environment with basic Linux commands:
+
+- Created aws-static-site repo with starter files
+- Added repo topics for discoverability
+  
