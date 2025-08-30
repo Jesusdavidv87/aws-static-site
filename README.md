@@ -38,3 +38,9 @@ aws-static-site/
 - Created aws-static-site repo with starter files
 - Added repo topics for discoverability
   
+## Day 2 Achievements (2025-08-29)
+- Completed Udemy CLF storage section (S3, EBS, EFS, Glacier).
+- Created S3 bucket and enabled static website hosting.
+- Applied bucket policy for public GET access.
+- Uploaded `index.html` and verified website endpoint.
+- ✅ Website live: http://aws-static-site-jesusdavidv87.s3-website-us-east-1.amazonaws.com
