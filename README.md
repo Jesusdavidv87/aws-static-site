@@ -52,7 +52,7 @@ aws-static-site/
 - Re-enabled Block Public Access on S3.
 - Verified secure HTTPS site: https://dvlfgfp2m78gv.cloudfront.net
 
-Day 4 Log (2025-08-31)
+- Day 4 Log (2025-08-31)
 
 Explored IAM basics (Skill Builder labs)
 
@@ -71,3 +71,5 @@ No static credentials stored in the repo
 Least privilege access (limited to S3 + CloudFront for this project)
 
 Automatic credential rotation handled by AWS
+
+
