@@ -45,15 +45,14 @@ aws-static-site/
 - Uploaded `index.html` and verified website endpoint.
 - ✅ Website live: http://aws-static-site-jesusdavidv87.s3-website-us-east-1.amazonaws.com
 
-- ## Day 3 Achievements (2025-08-30)
+## Day 3 Achievements (2025-08-30)
 - Deployed CloudFront distribution in front of S3.
 - Configured Default Root Object (index.html).
 - Applied OAC bucket policy to lock S3 bucket access to CloudFront only.
 - Re-enabled Block Public Access on S3.
 - Verified secure HTTPS site: https://dvlfgfp2m78gv.cloudfront.net
 
-- ## Day 4 Achievements (2025-08-31)
-
+## Day 4 Achievements (2025-08-31)
 - Completed IAM basics (Skill Builder labs).
 - Set up IAM role with OIDC provider for GitHub Actions.
 - Prepared GitHub Actions workflow for secure deploys.
