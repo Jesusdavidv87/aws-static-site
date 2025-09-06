@@ -62,4 +62,27 @@ aws-static-site/
 - Least privilege access (restricted to S3 + CloudFront).
 -  Automatic credential rotation managed by AWS.
 
+# Day 5 – IAM Policies & Security
+
+## Key Concepts
+- **IAM (Identity & Access Management)**: AWS service for controlling access to resources.
+- **IAM User**: An individual identity with credentials.
+- **IAM Roles**: Identities assumed by services or applications (e.g., GitHub Actions with OIDC).
+- **Policies**: JSON documents that define permissions (allow/deny).
+- **Principle of Least Privilege**: Always grant only the permissions needed.
+
+## Example – S3 Read-Only Policy
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["s3:GetObject"],
+      "Resource": ["arn:aws:s3:::aws-static-site-jesusdavidv87/*"]
+    }
+  ]
+}
+
+
 
