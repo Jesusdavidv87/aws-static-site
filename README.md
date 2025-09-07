@@ -91,3 +91,18 @@ aws-static-site/
 Static Website (S3) → CloudFront (CDN)  
 → *(Future extension: API Gateway + Lambda + Database inside VPC)*
 
+## Day 6 Achievements (2025-09-02)
+
+- Studied AWS database services:  
+  - **RDS**: managed SQL (MySQL, PostgreSQL, etc.), automated backups, scaling, and high availability.  
+  - **DynamoDB**: NoSQL, serverless, pay-per-request, designed for high-scale applications.  
+
+- Reviewed AWS networking fundamentals:  
+  - **VPC (Virtual Private Cloud)**: isolated private network in AWS.  
+    - Public subnet: internet-accessible resources (e.g., web server).  
+    - Private subnet: internal-only resources (e.g., databases).  
+  - **Route 53**: DNS service for domain name resolution.  
+
+- Documented key architecture idea:  
+  `Static website (S3) → CloudFront (CDN)`  
+  → *(Future extension: API Gateway + Lambda + Database inside VPC)*  
