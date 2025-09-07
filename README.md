@@ -84,22 +84,25 @@ aws-static-site/
   ]
 }
 
-# Day 6 – Databases & Networking  
+# Day 6 – Databases & Networking
 
-## Key Concepts  
+## Key Concepts
 
-- **RDS (Relational Database Service)**: Managed SQL databases (MySQL, PostgreSQL, etc.), with automated backups, scaling, and high availability.  
-- **DynamoDB**: NoSQL database, serverless, pay-per-request, great for high-scale applications.  
+- **RDS (Relational Database Service)**: Managed SQL databases (MySQL, PostgreSQL, etc.) with automated backups, scaling, and high availability.
+- **DynamoDB**: NoSQL database, serverless, pay-per-request, ideal for high-scale applications.
 
-- **VPC (Virtual Private Cloud)**: Isolated private network in AWS.  
-  - **Public Subnet**: Internet-accessible resources (e.g., web server).  
-  - **Private Subnet**: Internal-only resources (e.g., databases).  
+- **VPC (Virtual Private Cloud)**: Isolated network inside AWS.
+  - **Public Subnet**: Internet-accessible resources (e.g., web servers).
+  - **Private Subnet**: Internal-only resources (e.g., databases).
 
-- **Route 53**: AWS DNS service to route domain names to AWS resources.  
+- **Route 53**: AWS DNS service to map domain names to AWS resources.
 
-## Architecture Note  
-Static website (S3) → CloudFront (CDN)  
-→ *(Future extension: API Gateway + Lambda + Database inside VPC)*  
+## Architecture Note
+
+Static Website (S3) → CloudFront (CDN)  
+→ *(Future extension: API Gateway + Lambda + Database inside VPC)*
+
+ 
 
 
 
