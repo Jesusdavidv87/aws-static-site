@@ -25,7 +25,7 @@ jobs:
 
     - name: Sync files to S3
       run: |
-        aws s3 sync . s3://aws-static-site-jesusdavidv87/ \
+        aws s3 sync . s3://aws-static-site-jesusdavidv87 --delete
           --exclude ".git/*" \
           --exclude ".github/*" \
           --delete
@@ -33,5 +33,5 @@ jobs:
     - name: Invalidate CloudFront cache
       run: |
         aws cloudfront create-invalidation \
-          --distribution-id DVLFGFP2M78GV \
+          --distribution-id E29A67MYCCY41W \
           --paths "/*"
