@@ -1,108 +1,112 @@
-# AWS Static Website Project 🚀
+# AWS Static Website Architecture 🚀
 
-## Project Goal
-Host a static website on **Amazon S3** fronted by **CloudFront**, with future CI/CD via **GitHub Actions**. 
-This repo will serve as evidence of hands-on AWS skills for Solutions Architect Associate prep.
+## Overview
+This project demonstrates how to design and deploy a secure, scalable, and cost-efficient static website using AWS services.
 
-## Day 1 Log (2025-08-28)
-- Created GitHub repo `aws-static-site`
-- Set project goals and structure
-- Launched a Free Tier EC2 instance for practice and environment setup (SSH tested)
+The goal is not just to host a website, but to apply real-world cloud architecture principles including security, performance optimization, and automated deployment.
 
-## Architecture (target for Week 1)
-- S3 for static site hosting
-- CloudFront for CDN + HTTPS
-- IAM for least-privilege deployment access
-- (Later) GitHub Actions to deploy on push
+---
 
-## Project Structure (initial)
-```
-aws-static-site/
-├── index.html
-└── README.md
-```
+## Architecture
+
+**S3 (Storage) → CloudFront (CDN + HTTPS) → End Users**
+
+Future extension:
+**API Gateway → Lambda → Database (RDS / DynamoDB)**
+
+---
+
+## Key Components
+
+- **Amazon S3**
+  - Hosts static website content
+  - Private bucket with restricted access
+
+- **Amazon CloudFront**
+  - Provides global content delivery (low latency)
+  - Enforces HTTPS
+  - Secures access to S3 via Origin Access Control (OAC)
+
+- **IAM + OIDC (GitHub Actions)**
+  - Enables secure CI/CD without storing credentials
+  - Uses short-lived tokens and least privilege access
+
+---
+
+## Security Design
+
+- S3 public access blocked
+- Access restricted through CloudFront only
+- IAM roles used instead of static credentials
+- Principle of least privilege applied to all policies
+
+---
+
+## CI/CD (In Progress)
+
+- GitHub Actions configured with OIDC
+- Automated deployment to S3 on code changes
+- No credentials stored in repository
+
+---
+
+## Business Impact
+
+This architecture reflects how organizations deliver static content in production environments:
+
+- **Improved performance** through CDN caching (CloudFront)
+- **Enhanced security** by removing direct public access to storage
+- **Cost efficiency** by using serverless infrastructure (no EC2 required)
+- **Scalability** with global distribution and automatic scaling
+- **Operational simplicity** through automated deployments
+
+---
+
+## Trade-offs & Design Decisions
+
+- Chose **CloudFront + S3** over EC2:
+  - Lower cost
+  - Less operational overhead
+  - Better scalability
+
+- Used **OIDC instead of access keys**:
+  - Eliminates credential risk
+  - Improves security posture
+
+- Kept architecture simple:
+  - Easier to maintain and extend
+
+---
+
+## Live Demo
+
+- S3 Website Endpoint:  
+  http://aws-static-site-jesusdavidv87.s3-website-us-east-1.amazonaws.com
+
+- CloudFront HTTPS Endpoint:  
+  https://dvlfgfp2m78gv.cloudfront.net
+
+---
+
+## Key Learnings
+
+- Secure architectures often require restricting default access patterns
+- CDN integration significantly improves performance and user experience
+- Identity and access design is critical for production-ready systems
+- Automation is essential for scalability and consistency
+
+---
 
 ## Next Steps
-- Day 2: Create S3 bucket, enable static website hosting, upload `index.html`
-- Day 3: Add CloudFront distribution
-- Day 4+: Add GitHub Actions, screenshots, and a diagram
+
+- Add custom domain using Route 53
+- Extend backend with API Gateway + Lambda
+- Integrate monitoring (CloudWatch)
+- Improve CI/CD pipeline with testing and validation
+
+---
 
 ## Author
-**Jesus Velasquez**
 
-## Day 1 Achievements (2025-08-28)
-- Completed 1.5 hrs of CLF course (Global Infra + Compute)
-- Launched and connected to EC2 instance
-- Verified environment with basic Linux commands:
-
-- Created aws-static-site repo with starter files
-- Added repo topics for discoverability
-  
-## Day 2 Achievements (2025-08-29)
-- Completed Udemy CLF storage section (S3, EBS, EFS, Glacier).
-- Created S3 bucket and enabled static website hosting.
-- Applied bucket policy for public GET access.
-- Uploaded `index.html` and verified website endpoint.
-- ✅ Website live: http://aws-static-site-jesusdavidv87.s3-website-us-east-1.amazonaws.com
-
-## Day 3 Achievements (2025-08-30)
-- Deployed CloudFront distribution in front of S3.
-- Configured Default Root Object (index.html).
-- Applied OAC bucket policy to lock S3 bucket access to CloudFront only.
-- Re-enabled Block Public Access on S3.
-- Verified secure HTTPS site: https://dvlfgfp2m78gv.cloudfront.net
-
-## Day 4 Achievements (2025-08-31)
-- Completed IAM basics (Skill Builder labs).
-- Set up IAM role with OIDC provider for GitHub Actions.
-- Prepared GitHub Actions workflow for secure deploys.
-- Configured GitHub → AWS deployment using OIDC for best practices:
-- No static credentials stored in the repository.
-- Short-lived IAM role assumed at build time.
-- Least privilege access (restricted to S3 + CloudFront).
--  Automatic credential rotation managed by AWS.
-
-# Day 5 – IAM Policies & Security
-
-## Key Concepts
-- **IAM (Identity & Access Management)**: AWS service for controlling access to resources.
-- **IAM User**: An individual identity with credentials.
-- **IAM Roles**: Identities assumed by services or applications (e.g., GitHub Actions with OIDC).
-- **Policies**: JSON documents that define permissions (allow/deny).
-- **Principle of Least Privilege**: Always grant only the permissions needed.
-
-
-
-# Day 6 – Databases & Networking
-
-## Key Concepts
-
-- **RDS (Relational Database Service)**: Managed SQL databases (MySQL, PostgreSQL, etc.) with automated backups, scaling, and high availability.
-- **DynamoDB**: NoSQL database, serverless, pay-per-request, ideal for high-scale applications.
-
-- **VPC (Virtual Private Cloud)**: Isolated network inside AWS.
-  - **Public Subnet**: Internet-accessible resources (e.g., web servers).
-  - **Private Subnet**: Internal-only resources (e.g., databases).
-
-- **Route 53**: AWS DNS service to map domain names to AWS resources.
-
-## Architecture Note
-
-Static Website (S3) → CloudFront (CDN)  
-→ *(Future extension: API Gateway + Lambda + Database inside VPC)*
-
-## Day 6 Achievements (2025-09-02)
-
-- Studied AWS database services:  
-  - **RDS**: managed SQL (MySQL, PostgreSQL, etc.), automated backups, scaling, and high availability.  
-  - **DynamoDB**: NoSQL, serverless, pay-per-request, designed for high-scale applications.  
-
-- Reviewed AWS networking fundamentals:  
-  - **VPC (Virtual Private Cloud)**: isolated private network in AWS.  
-    - Public subnet: internet-accessible resources (e.g., web server).  
-    - Private subnet: internal-only resources (e.g., databases).  
-  - **Route 53**: DNS service for domain name resolution.  
-
-- Documented key architecture idea:  
-  `Static website (S3) → CloudFront (CDN)`  
-  → *(Future extension: API Gateway + Lambda + Database inside VPC)*  
+Jesus Velasquez  
+AWS Cloud Learner | Focused on Cloud Architecture, Scalability, and System Design
